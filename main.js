@@ -1,10 +1,11 @@
-const {app, BrowserWindow, ipcMain} = require('electron');
+const {app, BrowserWindow, ipcMain, screen} = require('electron');
 
 function createWindow () {
 	// Создаем окно браузера.
 	const win = new BrowserWindow({
-		width: 800,
-		height: 600,
+		width: screen.width,
+		height: screen.height,
+		fullscreen: true,
 		webPreferences: {
 			nodeIntegration: true
 		}
@@ -17,12 +18,15 @@ function createWindow () {
 	// Отображаем средства разработчика.
 	win.webContents.openDevTools();
 
-
 }
 
 function setNavigatorHandling(win) {
 	ipcMain.on('nav-push', function (_, arg) {
 		win.loadFile(arg);
+	});
+
+	ipcMain.on('nav-close', function (_, arg) {
+		win.close(arg);
 	});
 }
   
