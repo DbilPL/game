@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> OofDertale </title>
+        <link rel="stylesheet" href="../styles/main.css" />
+    </head>
+    <body>
+        <div class="fullScreenCenter">
+            <h1 class="loadingText">Loading</h1>
+        </div>
+    </body>
+    <script>
+        (function () {
+            const textContainer = document.querySelector('.loadingText');
+
+            let text = 'Loading';
+
+            let counter = 1;
+
+            setInterval(function () {
+                
+                if (counter < 4) {
+                    counter++;
+                    text += '.';
+                }
+
+                textContainer.innerText = text;
+                
+            }, 1000);
+        })();
+    </script>
+    <script type="module" src="../logic/initial.js" defer></script>
+</html>

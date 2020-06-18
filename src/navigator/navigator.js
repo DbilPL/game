@@ -5,7 +5,7 @@ export default class Navigator {
 	push(page) {
 		ipcRenderer.send('nav-push', page.filePath);
 	}
-
+	/// Closes app
 	close() {
 		ipcRenderer.send('nav-close');
 	}

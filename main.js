@@ -11,22 +11,24 @@ function createWindow () {
 		}
 	});
 
+	/// Initialises [Navigator] logic
 	setNavigatorHandling(win);
   
 	// and load the index.html of the app.
-	win.loadFile('index.html');  
+	win.loadFile('./src/pages/initialPage.html');  
 	// Отображаем средства разработчика.
 	win.webContents.openDevTools();
-
 }
 
 function setNavigatorHandling(win) {
-	ipcMain.on('nav-push', function (_, arg) {
-		win.loadFile(arg);
+	// To other page
+	ipcMain.on('nav-push', function (_, page) {
+		win.loadFile(page);
 	});
 
-	ipcMain.on('nav-close', function (_, arg) {
-		win.close(arg);
+	// Closes window
+	ipcMain.on('nav-close', function () {
+		win.close();
 	});
 }
   
