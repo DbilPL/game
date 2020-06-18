@@ -11,33 +11,28 @@ export class Storage {
 		this.filePath = path.join(__dirname, filePath);
 	}
 
-	write(key, value) {
+	write(json) {
 		const filePath = this.filePath;
 
 		return new Promise(function (resolve) {
 			if (fs.existsSync(filePath)) {
-				const file = fs.readFileSync(filePath, 'utf-8');
-				const parsedJson = JSON.parse(file);
+				const parsedJson = JSON.stringify(json);
 	
-				parsedJson[key] = value;
-	
-				const json = JSON.stringify(parsedJson);
-	
-				resolve(fs.writeFileSync(filePath, json));
+				resolve(fs.writeFileSync(filePath, parsedJson));
 			} else {
 				throw new StorageException('No JSON provided for that storage!');
 			}
 		});
 	}
 
-	read(key) {
+	read() {
 		const filePath = this.filePath;
 		return new Promise(function (resolve) {
 			if (fs.existsSync(filePath)) {
 				const file = fs.readFileSync(filePath, 'utf-8');
 				const parsedJson = JSON.parse(file);
 	
-				resolve(parsedJson[key]);
+				resolve(parsedJson);
 			} else {
 				throw new StorageException('No JSON provided for that storage!');
 			}

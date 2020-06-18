@@ -1,6 +1,5 @@
 /* eslint-disable quotes */
 import routes from '../../core/constants/pages.js';
-import KeyStorage from '../../core/constants/keys.js';
 import { NoDataException } from '../../core/errors/exceptions.js';
 import { navigator, savingsStorage } from '../../main.js';
 
@@ -17,7 +16,7 @@ function main() {
 function checkForContent() {
 	return new Promise(function (res, rej) {
 		setTimeout(function () {
-			const savings = savingsStorage.read(KeyStorage.savingsKey);
+			const savings = savingsStorage.read();
 
 			savings
 				.then(function (savings) {
