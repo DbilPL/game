@@ -17,15 +17,16 @@
 
             let counter = 1;
 
-            setInterval(function () {
+            const interval = setInterval(function () {
                 
                 if (counter < 4) {
                     counter++;
                     text += '.';
+                } else {
+                    clearInterval(interval);
                 }
-
-                textContainer.innerText = text;
                 
+                textContainer.innerText = text;   
             }, 1000);
         })();
     </script>

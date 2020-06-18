@@ -1,9 +1,9 @@
-import Page from '../navigator/page.js';
+import Page from '../../features/navigator/page.js';
 
 // TODO: Initialise pages
 
 export default {
 	mainPage: new Page({
-		filePath: 'src/pages/mainPage.html'
+		filePath: 'src/app/pages/mainPage.html'
 	}),
 };

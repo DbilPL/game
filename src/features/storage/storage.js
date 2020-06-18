@@ -1,7 +1,7 @@
 
 const fs = require('fs');
 const path = require('path');
-import { StorageException } from '../errors/exceptions.js';
+import { StorageException } from '../../core/errors/exceptions.js';
 
 // Storage for some local saves
 export class Storage {

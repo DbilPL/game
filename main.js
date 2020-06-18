@@ -15,7 +15,7 @@ function createWindow () {
 	setNavigatorHandling(win);
   
 	// and load the index.html of the app.
-	win.loadFile('./src/pages/initialPage.html');  
+	win.loadFile('./src/app/pages/initialPage.html');  
 	// Отображаем средства разработчика.
 	win.webContents.openDevTools();
 }
