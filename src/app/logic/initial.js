@@ -1,8 +1,8 @@
 /* eslint-disable quotes */
-import routes from '../constants/pages.js';
-import KeyStorage from '../constants/keys.js';
-import { NoDataException } from '../errors/exceptions.js';
-import { navigator, savingsStorage } from '../main.js';
+import routes from '../../core/constants/pages.js';
+import KeyStorage from '../../core/constants/keys.js';
+import { NoDataException } from '../../core/errors/exceptions.js';
+import { navigator, savingsStorage } from '../../main.js';
 
 
 
