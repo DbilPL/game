@@ -1,9 +1,12 @@
-import Page from '../../features/navigator/page.js';
+const Page = require('../../features/navigator/page.js');
 
 // TODO: Initialise pages
 
-export default {
+module.exports = {
 	mainPage: new Page({
 		filePath: 'src/app/pages/mainPage.html'
 	}),
+	settingsPage: new Page({
+		filePath: 'src/app/pages/settingsPage.html'
+	})
 };

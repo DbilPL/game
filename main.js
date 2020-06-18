@@ -1,10 +1,8 @@
-const {app, BrowserWindow, ipcMain, screen} = require('electron');
+const {app, BrowserWindow, ipcMain, dialog} = require('electron');
 
 function createWindow () {
 	// Создаем окно браузера.
 	const win = new BrowserWindow({
-		width: screen.width,
-		height: screen.height,
 		fullscreen: true,
 		webPreferences: {
 			nodeIntegration: true
@@ -13,7 +11,7 @@ function createWindow () {
 
 	/// Initialises [Navigator] logic
 	setNavigatorHandling(win);
-  
+
 	// and load the index.html of the app.
 	win.loadFile('./src/app/pages/initialPage.html');  
 	// Отображаем средства разработчика.
@@ -27,7 +25,23 @@ function setNavigatorHandling(win) {
 	});
 
 	// Closes window
-	ipcMain.on('nav-close', function () {
+	ipcMain.on('nav-close', async function () {
+		const options = {
+			type: 'question',
+			buttons: ['Yes, please', 'No, thanks'],
+			title: 'Question',
+			message: 'Do you want to do this?',
+			detail: 'Do you really want to quit my app?',
+		};
+		
+		const result = await dialog.showMessageBox(null, options);
+
+		if (result.response === 0) {
+			win.close();
+		}
+	});
+
+	ipcMain.on('nav-close-force', function () {
 		win.close();
 	});
 }

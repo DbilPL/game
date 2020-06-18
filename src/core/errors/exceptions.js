@@ -4,14 +4,19 @@ class AppException {
 	}
 }
 
-export class StorageException extends AppException {
+class StorageException extends AppException {
 	constructor(message) {
 		super(message);
 	}
 } 
 
-export class NoDataException extends AppException {
+class NoDataException extends AppException {
 	constructor(message) {
 		super(message);
 	}
-} 
+}
+
+module.exports = {
+	StorageException,
+	NoDataException
+};

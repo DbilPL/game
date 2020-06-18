@@ -1,13 +1,12 @@
 
 const fs = require('fs');
 const path = require('path');
-import { StorageException } from '../../core/errors/exceptions.js';
+const { StorageException } = require('../../core/errors/exceptions.js');
 
 // Storage for some local saves
-export class Storage {
+module.exports = class Storage {
 
 	constructor({ filePath }) {
-		console.log(path.join(__dirname, filePath));
 		this.filePath = path.join(__dirname, filePath);
 	}
 
@@ -38,4 +37,4 @@ export class Storage {
 			}
 		});
 	}
-}
+};

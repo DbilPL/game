@@ -1,4 +1,6 @@
 @import './initialPageStyles.css';
+@import './mainPageStyles.css';
+@import './settingsPageStyles.css';
 
 * {
     margin: 0;

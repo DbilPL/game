@@ -1,4 +1,4 @@
-export default class Save {
+module.exports = class Save {
 	constructor({ progress, inventory, player }) {
 		this.progress = progress;
 		this.inventory = inventory;
@@ -12,4 +12,4 @@ export default class Save {
 			'progress': this.progress.toJson(), 
 		};
 	}
-}
+};

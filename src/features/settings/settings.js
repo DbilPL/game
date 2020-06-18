@@ -1,4 +1,4 @@
-export default class Settings {
+module.exports = class Settings {
 	constructor({ lang, isVolumeTurnedOn }) {
 		this.lang = lang;
 		this.isVolumeTurnedOn = isVolumeTurnedOn;
@@ -17,4 +17,4 @@ export default class Settings {
 			'is_volume_turned_on': this.isVolumeTurnedOn,
 		};
 	}
-}
+};

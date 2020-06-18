@@ -1,5 +1,5 @@
-export default class Page {
+module.exports = class Page {
 	constructor({ filePath }) {
 		this.filePath = filePath;
 	}
-}
+};
